@@ -49,6 +49,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>ZeroC DataCapture requires access to your phone’s camera.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ZeroC DataCapture requires access to your phone&apos;s photo library.</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

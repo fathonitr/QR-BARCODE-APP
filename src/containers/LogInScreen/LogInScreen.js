@@ -4,15 +4,11 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import colors from '../../../assets/colors/colors';
 
-const LogInScreen = () => {
+const LogInScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const { height } = useWindowDimensions();
-
-  const onSignInPressed = () => {
-    console.warn(' log in pressed ');
-  };
 
   const onForgotPasswordPressed = () => {
     console.warn(' forgot password ');
@@ -39,7 +35,7 @@ const LogInScreen = () => {
         secureTextEntry={true}
       />
 
-      <CustomButton text="Log In" onPress={onSignInPressed} />
+      <CustomButton text="Log In" onPress={() => navigation.navigate('Home')} />
 
       <CustomButton
         text="Forgot?"

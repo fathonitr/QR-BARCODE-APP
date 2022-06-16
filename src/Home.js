@@ -1,12 +1,24 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { Button, View, Text, StyleSheet } from 'react-native';
 
-const Home = () => {
+function Home({ navigation }) {
   return (
-    <SafeAreaView>
-      <Text>Welcome to the Home page!</Text>
-    </SafeAreaView>
+    <View style={styles.page}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Code Scanner"
+        onPress={() => navigation.navigate('CodeScanner')}
+      />
+    </View>
   );
-};
+}
+
+const styles = StyleSheet.create({
+  page: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default Home;

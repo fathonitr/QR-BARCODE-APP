@@ -5,18 +5,18 @@ import colors from '../assets/colors/colors';
 
 const data = [
   {
-    title: 'CO2 AND ENERGY MANAGEMENT COMBINED',
-    text: 'ZeroC is an intuitive software solution for real estate operators that can be used to record and visualize all energy values of a property in real-time.',
+    title: 'EASY-TO-USE',
+    text: 'We will guide your every step through the app.',
     image: require('../assets/images/image1.png'),
   },
   {
-    title: 'AUTOMATED AI MODELING OF THE PROPERTY',
-    text: 'The software creates a digital twin of the property or neighborhood and models the corresponding energy flows.',
+    title: 'AUTOMATED AI Input',
+    text: 'Automaticly detecting your electricity meter. One click and we do the rest.',
     image: require('../assets/images/image2.png'),
   },
   {
     title: 'REPORTING & VISUALIZATION',
-    text: 'Individual reporting for energy and CO2 balance can be visualized.',
+    text: 'Keeping track of your electricity usage is now easy than ever.',
     image: require('../assets/images/image3.png'),
   },
 ];

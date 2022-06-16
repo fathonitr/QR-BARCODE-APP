@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Onboard from './Onboard';
 //import CameraGallery from './CameraGallery';
-import LogInScreen from './containers/LogInScreen/LogInScreen';
+import Navigation from './navigation/Navigation';
 
 const App = () => {
   const [showOnboard, setShowOnboard] = useState(true);
@@ -15,7 +15,7 @@ const App = () => {
       {showOnboard ? (
         <Onboard handleDone={handleOnboardFinish} />
       ) : (
-        <LogInScreen />
+        <Navigation />
       )}
     </>
   );

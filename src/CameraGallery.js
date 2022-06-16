@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { View, SafeAreaView, StyleSheet, Image, Button } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import CodeScanner from './CodeScanner';
-const CameraGallery = () => {
+const CameraGallery = ({ navigation }) => {
   const [response, setResponse] = useState(null);
   const [scannerComp, setscannerComp] = useState(false);
 
@@ -45,6 +45,7 @@ const CameraGallery = () => {
           style={styles.button}
           onPress={() => setscannerComp(true)}
         />
+        <Button title="Go back" onPress={() => navigation.goBack()} />
         {scannerComp && <CodeScanner />}
       </SafeAreaView>
     </View>

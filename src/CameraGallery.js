@@ -1,10 +1,27 @@
-import React, { useState, useCallback } from 'react';
-import { View, SafeAreaView, StyleSheet, Image, Button } from 'react-native';
+import React, { useState, useCallback, useEffect } from 'react';
+import {
+  View,
+  SafeAreaView,
+  StyleSheet,
+  Image,
+  Button,
+  Text,
+} from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import CodeScanner from './CodeScanner';
+import TextRecognition from 'react-native-text-recognition';
 const CameraGallery = ({ navigation }) => {
   const [response, setResponse] = useState(null);
-  const [scannerComp, setscannerComp] = useState(false);
+  const [text, setText] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      if (response) {
+        const result = await TextRecognition.recognize(response.assets[0].uri);
+        console.log(result);
+        setText(result);
+      }
+    })();
+  }, [response]);
 
   const onImageLibraryPress = useCallback(() => {
     const options = {
@@ -30,6 +47,14 @@ const CameraGallery = ({ navigation }) => {
     <View syle={styles.body}>
       <SafeAreaView style={styles.buttons}>
         <Image style={styles.selectedImage} source={uri ? { uri } : null} />
+        <Text style={styles.textRecogTitle}>
+          ####### Text recognition result #######
+        </Text>
+        {text ? (
+          <Text>{text}</Text>
+        ) : (
+          <Text> Choose an image or take a picture</Text>
+        )}
         <Button
           style={styles.button}
           title="Library"
@@ -40,13 +65,6 @@ const CameraGallery = ({ navigation }) => {
           title="Camera"
           onPress={() => onCameraPress()}
         />
-        <Button
-          title="Scan QR/Barcode"
-          style={styles.button}
-          onPress={() => setscannerComp(true)}
-        />
-        <Button title="Go back" onPress={() => navigation.goBack()} />
-        {scannerComp && <CodeScanner />}
       </SafeAreaView>
     </View>
   );

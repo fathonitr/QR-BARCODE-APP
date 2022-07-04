@@ -6,8 +6,12 @@ function Home({ navigation }) {
     <View style={styles.page}>
       <Text>Home Screen</Text>
       <Button
-        title="Code Scanner"
-        onPress={() => navigation.navigate('CodeScanner')}
+        title="Serialnumber Scanner"
+        onPress={() => navigation.navigate('SerialNumberScanner')}
+      />
+      <Button
+        title="Detail Screen"
+        onPress={() => navigation.navigate('DetailScreen')}
       />
     </View>
   );

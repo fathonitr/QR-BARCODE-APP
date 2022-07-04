@@ -1,15 +1,15 @@
 import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 
-const CodeScanner = ({ navigation }) => {
+const DetailScreen = ({ navigation }) => {
   return (
     <View style={styles.page}>
-      <Text>Code Scanner</Text>
+      <Text>DetailScreen</Text>
       <Button
-        title="Barcode Scanner"
-        onPress={() => navigation.navigate('CameraGallery')}
+        title="Meter Scanner"
+        onPress={() => navigation.navigate('MeterScanner')}
       />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Home" onPress={() => navigation.navigate('Home')} />
     </View>
   );
 };
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CodeScanner;
+export default DetailScreen;

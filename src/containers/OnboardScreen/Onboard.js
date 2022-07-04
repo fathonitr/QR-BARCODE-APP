@@ -1,23 +1,23 @@
 import React from 'react';
 import { View, Text, Image, StatusBar, StyleSheet } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import colors from '../assets/colors/colors';
+import colors from '../../../assets/colors/colors';
 
 const data = [
   {
     title: 'EASY-TO-USE',
     text: 'We will guide your every step through the app.',
-    image: require('../assets/images/image1.png'),
+    image: require('../../../assets/images/image1.png'),
   },
   {
     title: 'AUTOMATED AI Input',
     text: 'Automaticly detecting your electricity meter. One click and we do the rest.',
-    image: require('../assets/images/image2.png'),
+    image: require('../../../assets/images/image2.png'),
   },
   {
     title: 'REPORTING & VISUALIZATION',
     text: 'Keeping track of your electricity usage is now easy than ever.',
-    image: require('../assets/images/image3.png'),
+    image: require('../../../assets/images/image3.png'),
   },
 ];
 

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import TextRecognition from 'react-native-text-recognition';
-const CameraGallery = ({ navigation }) => {
+const MeterScanner = ({ navigation }) => {
   const [response, setResponse] = useState(null);
   const [text, setText] = useState(null);
 
@@ -65,6 +65,11 @@ const CameraGallery = ({ navigation }) => {
           title="Camera"
           onPress={() => onCameraPress()}
         />
+        <Button
+          title="Submission Screen"
+          onPress={() => navigation.navigate('SubmissionScreen')}
+        />
+        <Button title="Home" onPress={() => navigation.navigate('Home')} />
       </SafeAreaView>
     </View>
   );
@@ -100,4 +105,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CameraGallery;
+export default MeterScanner;

@@ -7,41 +7,45 @@ import {
   Button,
   Text,
 } from 'react-native';
-import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+/* import { launchCamera, launchImageLibrary } from 'react-native-image-picker'; */
 import TextRecognition from 'react-native-text-recognition';
+import ImagePicker from 'react-native-image-crop-picker';
 const MeterScanner = ({ navigation }) => {
   const [response, setResponse] = useState(null);
   const [text, setText] = useState(null);
+  const [uri, setUri] = useState(null);
 
   useEffect(() => {
     (async () => {
-      if (response) {
-        const result = await TextRecognition.recognize(response.assets[0].uri);
+      if (uri) {
+        const result = await TextRecognition.recognize(uri);
         console.log(result);
         setText(result);
       }
     })();
-  }, [response]);
+  }, [uri]);
 
-  const onImageLibraryPress = useCallback(() => {
-    const options = {
-      selectionLimit: 1,
-      mediaType: 'photo',
-      includeBase64: false,
-    };
-    launchImageLibrary(options, setResponse);
-  }, []);
+  const chooseImage = () => {
+    ImagePicker.openPicker({
+      width: 300,
+      height: 100,
+      cropping: true,
+    }).then(image => {
+      setUri(image.path);
+      console.log(image.path);
+    });
+  };
 
-  const onCameraPress = React.useCallback(() => {
-    const options = {
-      saveToPhotos: true,
-      mediaType: 'photo',
-      includeBase64: false,
-    };
-    launchCamera(options, setResponse);
-  }, []);
-
-  const uri = response?.assets && response.assets[0].uri;
+  const openCamera = () => {
+    ImagePicker.openCamera({
+      width: 300,
+      height: 100,
+      cropping: true,
+    }).then(image => {
+      setUri(image.path);
+      console.log(image.path);
+    });
+  };
 
   return (
     <View syle={styles.body}>
@@ -58,12 +62,12 @@ const MeterScanner = ({ navigation }) => {
         <Button
           style={styles.button}
           title="Library"
-          onPress={() => onImageLibraryPress()}
+          onPress={() => chooseImage()}
         />
         <Button
           style={styles.button}
           title="Camera"
-          onPress={() => onCameraPress()}
+          onPress={() => openCamera()}
         />
         <Button
           title="Submission Screen"
@@ -96,12 +100,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   selectedImage: {
-    height: 240,
-    width: 240,
-    overflow: 'hidden',
-    borderColor: '#ffffff',
-    borderWidth: 4,
-    borderRadius: 260 / 2,
+    width: '100%',
+    height: '50%',
+    resizeMode: 'contain',
   },
 });
 

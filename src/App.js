@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import Onboard from './containers/OnboardScreen/Onboard';
-//import CameraGallery from './CameraGallery';
+import Onboard from './containers/OnboardScreen';
 import Navigation from './navigation/Navigation';
 
 const App = () => {

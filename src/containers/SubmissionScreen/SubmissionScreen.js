@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
 
-const SerialNumberScanner = ({ navigation }) => {
+const SubmissionScreen = ({ navigation }) => {
   return (
     <View style={styles.page}>
       <Text>SubmissionScreen</Text>
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SerialNumberScanner;
+export default SubmissionScreen;

@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
+import SubmissionScreen from '../../containers/SubmissionScreen/SubmissionScreen';
 import {
   View,
   SafeAreaView,
@@ -10,8 +11,9 @@ import {
 /* import { launchCamera, launchImageLibrary } from 'react-native-image-picker'; */
 import TextRecognition from 'react-native-text-recognition';
 import ImagePicker from 'react-native-image-crop-picker';
+import { useStore } from '../../utils/states';
 const MeterScanner = ({ navigation }) => {
-  const [response, setResponse] = useState(null);
+  const setScannedMeter = useStore(state => state.setResultMeter);
   const [text, setText] = useState(null);
   const [uri, setUri] = useState(null);
 
@@ -21,6 +23,7 @@ const MeterScanner = ({ navigation }) => {
         const result = await TextRecognition.recognize(uri);
         console.log(result);
         setText(result);
+        setScannedMeter(result);
       }
     })();
   }, [uri]);
@@ -46,7 +49,6 @@ const MeterScanner = ({ navigation }) => {
       console.log(image.path);
     });
   };
-
   return (
     <View syle={styles.body}>
       <SafeAreaView style={styles.buttons}>
@@ -73,7 +75,12 @@ const MeterScanner = ({ navigation }) => {
           title="Submission Screen"
           onPress={() => navigation.navigate('SubmissionScreen')}
         />
-        <Button title="Home" onPress={() => navigation.navigate('Home')} />
+        <Button
+          title="Home"
+          onPress={() => {
+            navigation.navigate('Home');
+          }}
+        />
       </SafeAreaView>
     </View>
   );

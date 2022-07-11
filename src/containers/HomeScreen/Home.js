@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, SafeAreaView } from 'react-native';
 import AddButton from '../../components/AddButton';
 import MeterEntry from '../../components/MeterEntry';
 
@@ -8,7 +8,7 @@ function Home({ navigation }) {
   const [inputText, setInputText] = React.useState('100 kWh');
 
   return (
-    <View style={styles.safeAreaContainer}>
+    <SafeAreaView style={styles.safeAreaContainer}>
       <Text style={styles.headerText}>Dashboard</Text>
       <Text style={styles.text}>Registered Meter</Text>
 
@@ -18,7 +18,7 @@ function Home({ navigation }) {
         onPress={() => navigation.navigate('SerialNumberScanner')}
         text="+"
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

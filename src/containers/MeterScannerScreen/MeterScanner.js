@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import SubmissionScreen from '../../containers/SubmissionScreen/SubmissionScreen';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   SafeAreaView,
@@ -8,10 +7,10 @@ import {
   Button,
   Text,
 } from 'react-native';
-/* import { launchCamera, launchImageLibrary } from 'react-native-image-picker'; */
 import TextRecognition from 'react-native-text-recognition';
 import ImagePicker from 'react-native-image-crop-picker';
-import { useStore } from '../../utils/states';
+import { useStore } from '@utils/states';
+
 const MeterScanner = ({ navigation }) => {
   const setScannedMeter = useStore(state => state.setResultMeter);
   const [text, setText] = useState(null);

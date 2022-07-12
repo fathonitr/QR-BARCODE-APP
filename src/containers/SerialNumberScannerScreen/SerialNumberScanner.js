@@ -1,5 +1,6 @@
 import React from 'react';
 import { SafeAreaView, Button, Text, StyleSheet } from 'react-native';
+
 const SerialNumberScanner = ({ navigation }) => {
   const captureHandle = () => {
     console.log('pressed');

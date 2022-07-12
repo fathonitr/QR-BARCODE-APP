@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LogInScreen from '../containers/LogInScreen';
-import Home from '../containers/HomeScreen';
-import SubmissionScreen from '../containers/SubmissionScreen';
-import SerialNumberScanner from '../containers/SerialNumberScannerScreen';
-import MeterScanner from '../containers/MeterScannerScreen';
-import DetailScreen from '../containers/DetailScreen';
-import MeterEntry from '../components/MeterEntry';
+import LogInScreen from '@containers/LogInScreen';
+import Home from '@containers/HomeScreen';
+import SubmissionScreen from '@containers/SubmissionScreen';
+import SerialNumberScanner from '@containers/SerialNumberScannerScreen';
+import MeterScanner from '@containers/MeterScannerScreen';
+import DetailScreen from '@containers/DetailScreen';
+import MeterEntry from '@components/MeterEntry';
 
 const Stack = createNativeStackNavigator();
 

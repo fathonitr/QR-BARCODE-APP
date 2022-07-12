@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { View, Button, Text, StyleSheet } from 'react-native';
-import { useStore } from '../../utils/states';
+import { useStore } from '@utils/states';
 
 const SubmissionScreen = ({ navigation }) => {
   const scannedMeter = useStore(state => state.resultMeter);

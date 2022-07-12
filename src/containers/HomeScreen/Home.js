@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, SafeAreaView } from 'react-native';
-import AddButton from '../../components/AddButton';
-import MeterEntry from '../../components/MeterEntry';
+import AddButton from '@components/AddButton';
+import MeterEntry from '@components/MeterEntry';
 
 function Home({ navigation }) {
   const [popUpOpened, setPopUp] = React.useState(false);

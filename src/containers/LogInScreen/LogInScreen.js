@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, useWindowDimensions } from 'react-native';
 import React, { useState } from 'react';
-import CustomInput from '../../components/CustomInput/CustomInput';
-import CustomButton from '../../components/CustomButton/CustomButton';
-import colors from '../../../assets/colors/colors';
+import CustomInput from '@components/CustomInput/CustomInput';
+import CustomButton from '@components/CustomButton/CustomButton';
+import colors from '@assets/colors/colors';
 
 const LogInScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');

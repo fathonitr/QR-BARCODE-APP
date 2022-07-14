@@ -6,6 +6,7 @@ import MeterEntry from '../../components/MeterEntry';
 function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
+      {/* <CustomButton text="Log Out" onPress={onLogoutPressed} /> */}
       <Text style={styles.headerText}>Dashboard</Text>
       <Text style={styles.text}>Registered Meter</Text>
 

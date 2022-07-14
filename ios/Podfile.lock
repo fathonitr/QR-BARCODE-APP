@@ -436,6 +436,7 @@ PODS:
     - React-Core
     - React-RCTImage
     - TOCropViewController
+<<<<<<< HEAD
   - RNReanimated (2.9.1):
     - DoubleConversion
     - FBLazyVector
@@ -463,6 +464,10 @@ PODS:
     - React-RCTText
     - ReactCommon/turbomodule/core
     - Yoga
+=======
+  - RNKeychain (8.1.1):
+    - React-Core
+>>>>>>> ad21102... added keychain to current state as backupplan..
   - RNScreens (3.13.1):
     - React-Core
     - React-RCTImage
@@ -539,7 +544,11 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - RNImageCropPicker (from `../node_modules/react-native-image-crop-picker`)
+<<<<<<< HEAD
   - RNReanimated (from `../node_modules/react-native-reanimated`)
+=======
+  - RNKeychain (from `../node_modules/react-native-keychain`)
+>>>>>>> ad21102... added keychain to current state as backupplan..
   - RNScreens (from `../node_modules/react-native-screens`)
   - vision-camera-code-scanner (from `../node_modules/vision-camera-code-scanner`)
   - VisionCamera (from `../node_modules/react-native-vision-camera`)
@@ -650,8 +659,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-picker/picker"
   RNImageCropPicker:
     :path: "../node_modules/react-native-image-crop-picker"
+<<<<<<< HEAD
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
+=======
+  RNKeychain:
+    :path: "../node_modules/react-native-keychain"
+>>>>>>> ad21102... added keychain to current state as backupplan..
   RNScreens:
     :path: "../node_modules/react-native-screens"
   vision-camera-code-scanner:
@@ -725,7 +739,11 @@ SPEC CHECKSUMS:
   ReactCommon: bf2888a826ceedf54b99ad1b6182d1bc4a8a3984
   RNCPicker: 0250e95ad170569a96f5b0555cdd5e65b9084dca
   RNImageCropPicker: 44e2807bc410741f35d4c45b6586aedfe3da39d2
+<<<<<<< HEAD
   RNReanimated: 5c8c17e26787fd8984cd5accdc70fef2ca70aafd
+=======
+  RNKeychain: ff836453cba46938e0e9e4c22e43d43fa2c90333
+>>>>>>> ad21102... added keychain to current state as backupplan..
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863

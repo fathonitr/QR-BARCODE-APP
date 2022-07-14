@@ -3,45 +3,106 @@ import React, { useState } from 'react';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import colors from '../../../assets/colors/colors';
+import * as Keychain from 'react-native-keychain';
 
 const LogInScreen = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [userDetails, setUserDetails] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState('TestUser');
+  const [password, setPassword] = useState('Test123!');
+
+  useEffect(() => {
+    (async () => {
+      // const credentialUsername = username;
+      // const credentialPassword = password;
+
+      // await Keychain.setGenericPassword(credentialUsername, credentialPassword);
+
+      try {
+        const credentials = await Keychain.getGenericPassword();
+        if (credentials) {
+          setUserDetails(credentials);
+          setIsLoggedIn(true);
+          console.log(
+            'Credentials successfully loaded for ' + credentials.username,
+          );
+        } else {
+          console.log('No credentials stored');
+        }
+      } catch (error) {
+        console.log("Keychain couldn't be accessed!", error);
+      }
+      // await Keychain.resetGenericPassword();
+    })();
+  });
 
   const { height } = useWindowDimensions();
+
+  const onSignInPressed = async () => {
+    await Keychain.setGenericPassword(username, password);
+    setIsLoggedIn(true);
+    setUserDetails({ username, password });
+    navigation.navigate('Home');
+    console.warn(' log in pressed ');
+  };
+  const onLogoutPressed = async () => {
+    const logout = await Keychain.resetGenericPassword();
+    if (logout) {
+      setIsLoggedIn(false);
+      setUserDetails({});
+    }
+  };
 
   const onForgotPasswordPressed = () => {
     console.warn(' forgot password ');
   };
 
   return (
-    <View style={styles.root}>
-      <Text
-        style={[styles.header, { height: height * 1 }]}
-        resizeMode="contain">
-        Log into your account
-      </Text>
+    <View>
+      {!isLoggedIn ? (
+        <View style={styles.root}>
+          <Text
+            style={[styles.header, { height: height * 1 }]}
+            resizeMode="contain">
+            Log into your account
+          </Text>
 
-      <CustomInput
-        placeholder="Username / Email"
-        value={username}
-        setValue={setUsername}
-      />
+          <CustomInput
+            placeholder="Username / Email"
+            value={username}
+            setValue={setUsername}
+          />
 
-      <CustomInput
-        placeholder="Password"
-        value={password}
-        setValue={setPassword}
-        secureTextEntry={true}
-      />
+          <CustomInput
+            placeholder="Password"
+            value={password}
+            setValue={setPassword}
+            secureTextEntry={true}
+          />
 
-      <CustomButton text="Log In" onPress={() => navigation.navigate('Home')} />
+          <CustomButton text="Log In" onPress={onSignInPressed} />
 
-      <CustomButton
-        text="Forgot?"
-        onPress={onForgotPasswordPressed}
-        type="TERTIARY"
-      />
+          <CustomButton
+            text="Forgot?"
+            onPress={onForgotPasswordPressed}
+            type="TERTIARY"
+          />
+        </View>
+      ) : (
+        // <Home />
+        <View style={styles.root}>
+          <Text
+            style={[styles.header, { height: height * 1 }]}
+            resizeMode="contain">
+            Welcome Back
+          </Text>
+          <CustomButton
+            text="Home"
+            onPress={() => navigation.navigate('Home')}
+          />
+          <CustomButton text="Log out" onPress={onLogoutPressed} />
+        </View>
+      )}
     </View>
   );
 };

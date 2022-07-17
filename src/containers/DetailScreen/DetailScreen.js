@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native';
-import AddButton from '@components/AddButton';
-import ReadingEntry from '@components/ReadingEntry/ReadingEntry';
+import AddButton from '../../components/AddButton';
+import ReadingEntry from '../../components/ReadingEntry/ReadingEntry';
 
 const DetailScreen = ({ navigation }) => {
   return (

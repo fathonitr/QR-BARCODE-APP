@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import TextRecognition from 'react-native-text-recognition';
 import ImagePicker from 'react-native-image-crop-picker';
-import { useStore } from '@utils/states';
+import { useStore } from '../../utils/states';
 
 const MeterScanner = ({ navigation }) => {
   const setScannedMeter = useStore(state => state.setResultMeter);

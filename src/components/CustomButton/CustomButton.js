@@ -1,6 +1,6 @@
 import { Text, StyleSheet, Pressable } from 'react-native';
 import React from 'react';
-import colors from '@assets/colors/colors';
+import colors from '../../../assets/colors/colors';
 
 const CustomButton = ({ onPress, text, type = 'PRIMARY' }) => {
   return (

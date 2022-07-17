@@ -1,6 +1,6 @@
 import { View, TextInput, StyleSheet } from 'react-native';
 import React from 'react';
-import colors from '@assets/colors/colors';
+import colors from '../../../assets/colors/colors';
 
 const CustomInput = ({ value, setValue, placeholder, secureTextEntry }) => {
   return (

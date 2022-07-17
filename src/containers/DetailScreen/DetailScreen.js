@@ -17,7 +17,7 @@ const DetailScreen = ({ navigation }) => {
 
       <ReadingEntry reading="0101" date="20.01.2022" type="Smart Meter" />
 
-      <AddButton onPress={() => navigation.navigate('MeterScanner')} text="+" />
+      <AddButton onPress={() => navigation.navigate('MeterScanner')} />
     </SafeAreaView>
   );
 };

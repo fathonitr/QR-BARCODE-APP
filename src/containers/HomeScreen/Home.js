@@ -4,9 +4,6 @@ import AddButton from '../../components/AddButton';
 import MeterEntry from '../../components/MeterEntry';
 
 function Home({ navigation }) {
-  const [popUpOpened, setPopUp] = React.useState(false);
-  const [inputText, setInputText] = React.useState('100 kWh');
-
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <Text style={styles.headerText}>Dashboard</Text>
@@ -14,10 +11,7 @@ function Home({ navigation }) {
 
       <MeterEntry meter="2VBF0068273189" />
 
-      <AddButton
-        onPress={() => navigation.navigate('SerialNumberScanner')}
-        text="+"
-      />
+      <AddButton onPress={() => navigation.navigate('SerialNumberScanner')} />
     </SafeAreaView>
   );
 }

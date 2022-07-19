@@ -1,26 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { View, Button, Text, StyleSheet, TextInput, Alert } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
 import { useStore } from '../../utils/states';
 import colors from '../../../assets/colors/colors';
 
 const SNConfirmationScreen = ({ navigation }) => {
   const resultSerialNumber = useStore(state => state.resultSerialNumber);
   const setResultSerialNumber = useStore(state => state.setResultSerialNumber);
-  const setMeterType = useStore(state => state.setMeterType);
   const meterType = useStore(state => state.meterType);
 
   const confirmFunction = () => {
-    //HERE IS WHERE THE VALUE WILL BE STORED IN LOCAL STORAGE
-    if (meterType !== '' && meterType !== 'Unknown') {
-      console.log(
-        'Serial Number: ' + resultSerialNumber + ' || Meter Type: ' + meterType,
-      );
-      navigation.navigate('MeterScanner');
-    } else {
-      Alert.alert('Choose your meter type!');
-    }
+    console.log('SN is: ' + resultSerialNumber);
+    console.log('Meter Type is: ' + meterType);
+    navigation.navigate('MeterScanner');
   };
+
   if (resultSerialNumber === '') {
     return (
       <View style={styles.page}>
@@ -40,24 +33,10 @@ const SNConfirmationScreen = ({ navigation }) => {
   }
   return (
     <View style={styles.page}>
-      <View style={styles.instruction}>
-        <Text>Choose the meter type and click confirm</Text>
-      </View>
       <Text style={styles.SNtext}>
         {'Serial Number is: ' + resultSerialNumber}
       </Text>
-      <Text>{'Choose your meter type'}</Text>
-      <Picker
-        selectedValue={meterType}
-        onValueChange={(value, index) => setMeterType(value)}
-        mode="dropdown" // Android only
-        style={styles.picker}>
-        <Picker.Item label="Please select meter type" value="Unknown" />
-        <Picker.Item label="Electricity" value="Electricity" />
-        <Picker.Item label="Water" value="Water" />
-        <Picker.Item label="Gas" value="Gas" />
-      </Picker>
-      {meterType !== '' && <Text>{'The meter type is: ' + meterType}</Text>}
+      <Text style={styles.SNtext}>{'Meter Type is: ' + meterType}</Text>
       <Button title="Confirm" onPress={() => confirmFunction()} />
     </View>
   );

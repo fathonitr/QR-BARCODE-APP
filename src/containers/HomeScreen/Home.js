@@ -11,7 +11,7 @@ function Home({ navigation }) {
 
       <MeterEntry meter="2VBF0068273189" />
 
-      <AddButton onPress={() => navigation.navigate('SerialNumberScanner')} />
+      <AddButton onPress={() => navigation.navigate('MeterType')} />
     </SafeAreaView>
   );
 }

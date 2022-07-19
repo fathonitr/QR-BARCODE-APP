@@ -9,6 +9,7 @@ import MeterScanner from '../containers/MeterScannerScreen';
 import DetailScreen from '../containers/DetailScreen';
 import MeterEntry from '../components/MeterEntry';
 import SNConfirmationScreen from '../containers/SNConfirmationScreen';
+import MeterType from '../containers/MeterTypeScreen/MeterType';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,11 @@ function Navigation() {
           options={{ headerShown: false }}
           name="Home"
           component={Home}
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="MeterType"
+          component={MeterType}
         />
         <Stack.Screen
           options={{ headerShown: false }}

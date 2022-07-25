@@ -1,12 +1,25 @@
 import React from 'react';
 import { Text, StyleSheet, SafeAreaView } from 'react-native';
+import * as Keychain from 'react-native-keychain';
+import { useStore } from '../../utils/states';
 import AddButton from '../../components/AddButton';
 import MeterEntry from '../../components/MeterEntry';
+import CustomButton from '../../components/CustomButton';
 
 function Home({ navigation }) {
+  const setLogedInStatus = useStore(state => state.setLogedIn);
+
+  const onLogoutPressed = async () => {
+    const logout = await Keychain.resetGenericPassword();
+    if (logout) {
+      setLogedInStatus(false);
+      console.log('loged out');
+      navigation.navigate('LogInScreen');
+    }
+  };
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
-      {/* <CustomButton text="Log Out" onPress={onLogoutPressed} /> */}
+      <CustomButton text="Log Out" onPress={onLogoutPressed} />
       <Text style={styles.headerText}>Dashboard</Text>
       <Text style={styles.text}>Registered Meter</Text>
 

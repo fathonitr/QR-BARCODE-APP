@@ -8,4 +8,6 @@ export const useStore = create(set => ({
     set({ resultSerialNumber: inputSerialNumber }),
   meterType: '',
   setMeterType: inputMeterType => set({ meterType: inputMeterType }),
+  logedIn: false,
+  setLogedIn: inputLogin => set({ logedIn: inputLogin }),
 }));

@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 13,
   },
+  logout: {},
 });
 
 export default CustomButton;
